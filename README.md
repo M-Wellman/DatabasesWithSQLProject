@@ -9,7 +9,8 @@ Part 2
 Next, it's been requested that we create a new table that can be used to generate shipping labels for thank you packages. Create a new table named TopCustomers that has fields for first name, last name, address, city, state, postal code, and phone number. Fill this table with the relevant data for any customer that has spent at least $10.
 
 
-1)
+Part 1 solution
+
 UPDATE SupportRepId
 SET SupportRepId = 6
 FROM customers JOIN invoices USING(CustomerId)
@@ -19,7 +20,8 @@ WHERE AlbumId IN(8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 
 
 
 
-2)
+Part 2 Solution 
+
 SELECT CustomerId, FirstName, LastName, Address, City, State, PostalCode, PhoneNumber
 INTO TopCustomers
 FROM customers JOIN invoices USING(customerID)
