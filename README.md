@@ -21,6 +21,15 @@ WHERE AlbumId IN(8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 
 
 
 Part 2 Solution 
+CREATE Table TopCustomers (
+Customer Id INTEGER,
+FirstName VARCHAR(50) NOT NULL,
+LastName VARCHAR(50) NOT NULL, 
+Address VARCHAR(100),
+City VARCHAR(50),
+State VARCHAR (25), 
+PostalCode INTEGER, 
+PhoneNumber VARCHAR (20))
 
 SELECT CustomerId, FirstName, LastName, Address, City, State, PostalCode, PhoneNumber
 INTO TopCustomers
