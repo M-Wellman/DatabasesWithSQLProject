@@ -5,10 +5,6 @@ Uses the chinook.db database to do the following two tasks. solutions for both P
 Part 1
 The 'company' you work for has decided to hire a new bi-lingual support position. Your job is to locate all users who have purchased a Spanish language track and assign them to this new support representative. The new support representative's id is 6. Sales has begun to identify all the albums that are classified as Spanish language, so far they have found AlbumId's of 8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 47, 52, 53.
 
-Part 2
-Next, it's been requested that we create a new table that can be used to generate shipping labels for thank you packages. Create a new table named TopCustomers that has fields for first name, last name, address, city, state, postal code, and phone number. Fill this table with the relevant data for any customer that has spent at least $10.
-
-
 Part 1 solution
 
 UPDATE Customers
@@ -16,16 +12,18 @@ SET SupportRepId = 6
 FROM customers JOIN invoices USING(CustomerId)
 JOIN invoice_items USING(InvoiceId)
 JOIN tracks USING(TrackId)
-WHERE AlbumId IN(8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 47, 52, 53)
-
---^ gives an error while the code below selects the data I am looking to update
-select SupportRepId FROM customers 
+WHERE (
+select CustomerId, FirstName, LastName, SupportRepId FROM customers 
 join invoices using(CustomerId)
 join invoice_items using(InvoiceId)
 join tracks using(TrackId)
 Where AlbumId IN(8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 47, 52, 53)
+)
 
 
+
+Part 2
+Next, it's been requested that we create a new table that can be used to generate shipping labels for thank you packages. Create a new table named TopCustomers that has fields for first name, last name, address, city, state, postal code, and phone number. Fill this table with the relevant data for any customer that has spent at least $10.
 
 
 Part 2 Solution 
