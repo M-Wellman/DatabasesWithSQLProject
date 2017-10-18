@@ -11,12 +11,20 @@ Next, it's been requested that we create a new table that can be used to generat
 
 Part 1 solution
 
-UPDATE SupportRepId
+UPDATE Customers
 SET SupportRepId = 6
 FROM customers JOIN invoices USING(CustomerId)
 JOIN invoice_items USING(InvoiceId)
 JOIN tracks USING(TrackId)
 WHERE AlbumId IN(8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 47, 52, 53)
+
+--^ gives an error while the code below selects the data I am looking to update
+select SupportRepId FROM customers 
+join invoices using(CustomerId)
+join invoice_items using(InvoiceId)
+join tracks using(TrackId)
+Where AlbumId IN(8, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 41, 42, 45, 47, 52, 53)
+
 
 
 
